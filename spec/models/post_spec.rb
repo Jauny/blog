@@ -35,4 +35,27 @@ RSpec.describe Post, :type  => :model do
       expect(Post.find_by_slug("this-is-a-slug").id).to eq post.id
     end
   end
+
+  context "preview" do
+    context "when the content is longer that preview max length" do
+      let (:post) { Post.new(:title => "a post",
+                             :content => "word " * Post::PREVIEW_MAX_WORD_COUNT * 2 )}
+
+      it "shortens the preview to #{Post::PREVIEW_MAX_WORD_COUNT} words" do
+        post.preview.split(" ").count.should eq Post::PREVIEW_MAX_WORD_COUNT
+      end
+
+      it "adds an ellipsis at the end" do
+        post.preview.chars.last(3).join.should eq "..."
+      end
+    end
+
+    context "when the content is less than preview max length" do
+      it "returns the content" do
+        short_post = Post.new(:title => "a short post",
+                              :content => "a " * Post::PREVIEW_MAX_WORD_COUNT)
+        short_post.preview.should eq short_post.content
+      end
+    end
+  end
 end
