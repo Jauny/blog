@@ -1,5 +1,5 @@
 <div class="post">
-  <div class="post__title"><%= post.title %></div>
-  <div class="post__date"><%= post.created_at.strftime("%m-%d-%Y") %></div>
-  <div class="post__content"><%= post.preview %></div>
+  <div class="post__title"><%= link_to post.title, post %></div>
+  <div class="post__date"><%= post.formatted_date %></div>
+  <div class="post__content"><%= post.html_preview.html_safe %></div>
 </div>

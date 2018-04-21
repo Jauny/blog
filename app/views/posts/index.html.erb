@@ -1,3 +1,6 @@
 <% @posts.each do |post| %>
   <%= render :partial => "post", :locals => {post: post} %>
 <% end %>
+
+<%= link_to "previous", posts_path(:page => @page - 1) %>
+<%= link_to "next", posts_path(:page => @page + 1) %>
