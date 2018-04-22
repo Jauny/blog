@@ -8,15 +8,15 @@ class Post < ApplicationRecord
     self.slug = self.title ? self.title.parameterize : ""
   end
 
-  def self.get_all
+  def self.get_all(page = 1)
     Post.order(:date => :desc)
   end
 
   def preview
     if content.split(" ").count <= PREVIEW_MAX_WORD_COUNT
-      MarkdownHelper::strip_down content
+      MarkdownHelper::strip_down(content).strip
     else
-      MarkdownHelper::strip_down content.split(" ").first(PREVIEW_MAX_WORD_COUNT).join(" ") + "..."
+      MarkdownHelper::strip_down(content.split(" ").first(PREVIEW_MAX_WORD_COUNT).join(" ") + "...").strip
     end
   end
 
@@ -26,11 +26,6 @@ class Post < ApplicationRecord
 
   def formatted_date
     Time.at(date).to_datetime.strftime("%Y-%m-%d")
-  end
-
-  def format_markdown(md)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, :fenced_code_blocks => true)
-    markdown.render(md)
   end
 end
 
