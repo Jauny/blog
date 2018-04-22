@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'redcarpet'
 gem 'rouge'
 
+gem 'will_paginate', '~> 3.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -13,3 +13,12 @@
     margin-top: 10px;
   }
 }
+
+.pagination {
+  margin-top: 50px;
+  display: flex;
+  
+  .previous_page {
+    flex: 1
+  }
+}

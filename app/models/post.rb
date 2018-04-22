@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   after_initialize :set_slug
 
+  PER_PAGE_COUNT = 10
   PREVIEW_MAX_WORD_COUNT = 40
 
   def set_slug
@@ -13,18 +14,14 @@ class Post < ApplicationRecord
 
   def preview
     if content.split(" ").count <= PREVIEW_MAX_WORD_COUNT
-      content
+      MarkdownHelper::strip_down content
     else
-      content.split(" ").first(PREVIEW_MAX_WORD_COUNT).join(" ") + "..."
+      MarkdownHelper::strip_down content.split(" ").first(PREVIEW_MAX_WORD_COUNT).join(" ") + "..."
     end
   end
 
-  def html_preview
-    format_markdown(preview)
-  end
-
   def html_content
-    format_markdown(content)
+    MarkdownHelper::render_html content
   end
 
   def formatted_date

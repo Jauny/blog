@@ -1,5 +1,6 @@
 module MarkdownHelper
   require "redcarpet"
+  require 'redcarpet/render_strip'
   require "rouge"
   require "rouge/plugins/redcarpet"
 
@@ -7,7 +8,7 @@ module MarkdownHelper
     include Rouge::Plugins::Redcarpet
   end
 
-  def render_html(md)
+  def self.render_html(md)
     options = {
         filter_html:     true,
         hard_wrap:       true,
@@ -26,5 +27,10 @@ module MarkdownHelper
       markdown = Redcarpet::Markdown.new(renderer, extensions)
 
       markdown.render(md).html_safe
+  end
+
+  def self.strip_down(md)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+    markdown.render(md)
   end
 end

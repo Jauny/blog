@@ -1,11 +1,8 @@
 class PostsController < ApplicationController
   def index
-    per_page = 5
-    @page = params.fetch("page", 1).to_i
-    all_posts = Post.get_all
-    start = (@page - 1) * per_page
-    stop = start + per_page
-    @posts = all_posts[start..stop]
+    @posts = Post.paginate(:page => params[:page],
+                           :per_page => Post::PER_PAGE_COUNT)
+                 .order('date DESC')
   end
 
   def show
