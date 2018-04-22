@@ -20,7 +20,8 @@ module MarkdownHelper
         autolink:           true,
         highlight:          true,
         superscript:        true,
-        fenced_code_blocks: true
+        fenced_code_blocks: true,
+        tables:             true
       }
 
       renderer = HTML.new(options)
