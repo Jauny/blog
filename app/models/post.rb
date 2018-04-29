@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  after_initialize :set_slug
+  after_create :set_slug
 
   PER_PAGE_COUNT = 10
   PREVIEW_MAX_WORD_COUNT = 40
