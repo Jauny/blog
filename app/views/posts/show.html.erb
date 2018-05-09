@@ -1,4 +1,5 @@
 <div class="post">
-  <h1><%= @post.title %></h1>
-  <%= @post.html_content %>
+  <h1 class="post__title"><%= @post.title %></h1>
+  <div class="post__date"><%= @post.formatted_date %></div>
+  <div class="post__content"><%= @post.html_content %></div>
 </div>

@@ -1,0 +1,25 @@
+@import 'colors';
+
+$layer-height: 3px;
+
+@mixin layer($color) {
+  height: $layer-height;
+  background: $color;
+}
+
+.beach {
+  margin-top: 20px;
+
+  .sun {
+    @include layer($color-coral);
+  }
+  .sky {
+    @include layer($color-sky);
+  }
+  .sea {
+    @include layer($color-sea);
+  }
+  .sand {
+    @include layer($color-sand);
+  }
+}
