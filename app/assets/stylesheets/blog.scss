@@ -9,6 +9,12 @@ body {
   max-width: 700px;
 }
 
+@media only screen and (max-width: 700px)  {
+  body {
+    padding: 0 10px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
@@ -31,4 +37,8 @@ a {
 .spacer {
   height: 2px;
   background: $color-sky;
+}
+
+.highlight {
+  overflow-x: scroll;
 }

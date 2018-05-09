@@ -5,6 +5,10 @@ header {
   text-align: center;
   color: $color-sun;
 
+  h1 {
+    font-size: 4em;
+  }
+
   nav {
     display: flex;
     justify-content: space-evenly;
