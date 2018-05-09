@@ -1,6 +1,6 @@
 @import 'colors';
 
-$layer-height: 3px;
+$layer-height: 5px;
 
 @mixin layer($color) {
   height: $layer-height;
