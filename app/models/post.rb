@@ -26,7 +26,8 @@ class Post < ApplicationRecord
 
   private
   def set_slug
-    self.slug = self.title ? self.title.parameterize : ""
+    slug = title.parameterize
+    save
   end
 
   def set_date
