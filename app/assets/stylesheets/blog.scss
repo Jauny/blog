@@ -39,6 +39,6 @@ a {
   background: $color-sky;
 }
 
-.highlight {
-  overflow-x: scroll;
+.highlight pre.highlight {
+  overflow-x: auto;
 }
