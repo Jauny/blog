@@ -8,6 +8,10 @@ class Post < ApplicationRecord
     Post.order(:date => :desc)
   end
 
+  def to_param
+    slug
+  end
+
   def preview
     if content.split(" ").count <= PREVIEW_MAX_WORD_COUNT
       MarkdownHelper::strip_down(content).strip
@@ -26,8 +30,8 @@ class Post < ApplicationRecord
 
   private
   def set_slug
-    slug = title.parameterize
-    save
+    self.slug = self.title.parameterize
+    self.save
   end
 
   def set_date
