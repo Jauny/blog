@@ -1,12 +1,8 @@
 class Post < ApplicationRecord
-  after_create :set_slug
+  after_create :set_slug, :set_date
 
   PER_PAGE_COUNT = 10
   PREVIEW_MAX_WORD_COUNT = 40
-
-  def set_slug
-    self.slug = self.title ? self.title.parameterize : ""
-  end
 
   def self.get_all(page = 1)
     Post.order(:date => :desc)
@@ -25,7 +21,16 @@ class Post < ApplicationRecord
   end
 
   def formatted_date
-    Time.at(date).to_datetime.strftime("%Y-%m-%d")
+    Time.zone.at(date).strftime("%Y-%m-%d")
+  end
+
+  private
+  def set_slug
+    self.slug = self.title ? self.title.parameterize : ""
+  end
+
+  def set_date
+    Time.zone.now.strftime("%s")
   end
 end
 
