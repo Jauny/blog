@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :content, presence: true
+
   after_create :set_slug, :set_date
 
   PER_PAGE_COUNT = 10
