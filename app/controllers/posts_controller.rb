@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.paginate(:page => params[:page],
-                           :per_page => Post::PER_PAGE_COUNT)
-                 .order('date DESC')
+    @posts = Post.page(params[:page]).per(Post::PER_PAGE_COUNT).order('date DESC')
   end
 
   def show
