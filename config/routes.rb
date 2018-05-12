@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   # I want to keep former url format from Jekyll to work.
   # Format is /year/slug.
-  get "/:year/:slug/", :to => "posts#show", :constraints => { :year => /\d{4}/ }
+  get "/2018/migrate-rails-sqlite-postgres-ubuntu", to: redirect("/migrate-rails-5-from-sqlite3-to-postgres-on-ubuntu-16")
+  get "/2018/rails-puma-nginx-ubuntu", to: redirect("/automated-deploys-for-rails-5-puma-nginx-ubuntu-16-with-capistrano-on-digital-ocean")
+  get "/2017/get-mouse-pos-canvas", to: redirect("/get-mouse-position-on-canvas")
+  get "/2017/Google-Eng-Best-Practices", to: redirect("/google-s-software-development-best-practices")
+  get "/2017/remove-els-from-slice-while-loop", to: redirect("/removing-elements-from-slice-during-loop")
 end
