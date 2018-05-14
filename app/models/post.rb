@@ -38,7 +38,8 @@ class Post < ApplicationRecord
   end
 
   def set_date
-    Time.zone.now.strftime("%s")
+    self.date = Time.zone.now.strftime("%s")
+    self.save
   end
 end
 

@@ -2,35 +2,38 @@ require "rails_helper"
 
 RSpec.describe Post, :type  => :model do
   context "at creation" do
-    it "saves with a title and a content" do
-      post = Post.new(:title => "this is title", :content => "this is content")
+    it "saves the title and content" do
+      post = Post.create(:title => "this is title", :content => "this is content")
       expect(post.title).to eq "this is title"
       expect(post.content).to eq "this is content"
     end
 
     it "generates a slug" do
-      Post.create(:title => "this is a title")
+      Post.create(:title => "this is a title", :content => "this is content")
       expect(Post.last.slug).to eq "this-is-a-title"
     end
 
-    it "generates an empty slug when title is empty" do
-      Post.create
-      expect(Post.last.slug).to eq ""
+    it "requires a title" do
+      Post.create(:content => "this is content").should_not be_valid
+    end
+
+    it "requires a content" do
+      Post.create(:title => "this is title").should_not be_valid
     end
   end
 
   context "querying posts" do
-    it "returns posts sorted by creation date descending" do
-      post1 = Post.create(:date => Time.now)
-      post2 = Post.create(:date => Time.now + 1.minute)
+    it "returns most recent posts first" do
+      Post.create(:title => "title1", :content => "content1")
+      Post.create(:title => "title2", :content => "content2")
       
       all_posts = Post.get_all
 
-      expect(all_posts[0].date).to be > all_posts[1].date
+      expect(all_posts[0].id).to be < all_posts[1].id
     end
 
     it "can be queried by slug" do
-      post = Post.create(:title => "this is a slug")
+      post = Post.create(:title => "this is a slug", :content => "content")
 
       expect(Post.find_by_slug("this-is-a-slug").id).to eq post.id
     end
