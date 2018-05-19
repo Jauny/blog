@@ -1,24 +1,12 @@
-# README
+The blog lives at jypepin.com.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Deploys
+The blog is hosted on a Digital Ocean Droplet. Served by nginx and Puma (see `shared/config/puma.rb` on the droplet).
 
-Things you may want to cover:
+It uses Capistrano to automated developments.  
+See `config/deploy.rb` for Capistrano config. Run `bin/rake deploy` to push to master and deploy.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Reqs
+- Rails 5.1
+- ruby 2.4
+- psql 10.3
