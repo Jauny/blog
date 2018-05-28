@@ -10,7 +10,6 @@ module MarkdownHelper
 
   def self.render_html(md)
     options = {
-        filter_html:     true,
         hard_wrap:       true,
         link_attributes: { rel: 'nofollow', target: "_blank" },
         space_after_headers: true
