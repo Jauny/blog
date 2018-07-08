@@ -1,44 +1,21 @@
-@import 'colors';
-
 body {
-  font-family: 'Merriweather', sans-serif;
-  font-weight: 300;
-  color: $color-black;
-  margin: auto;
-  margin-bottom: 20px;
-  max-width: 700px;
-}
-
-@media only screen and (max-width: 700px)  {
-  body {
-    padding: 0 10px;
-  }
+  background-color: whitesmoke;
+  color: darkslategray;
+  font-size: 1.3em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 34em;
+  padding: 0 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-}
-h1, h2 {
-  color: $color-sun;
-  a {
-    color: inherit;
-  }
-}
-h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
-  color: $color-sky;
 }
 
-a {
-  color: $color-sky;
-  text-decoration: none;
+h1 {
+  margin: 0;
 }
 
-.spacer {
-  height: 2px;
-  background: $color-sky;
-}
-
-.highlight pre.highlight {
-  overflow-x: auto;
+a, a:visited, a:hover {
+  color: steelblue;
 }

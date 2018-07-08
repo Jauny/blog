@@ -1,21 +1,19 @@
-@import 'colors';
-
 header {
   font-family: 'Roboto', sans-serif;
-  text-align: center;
-  color: $color-sun;
+  margin-bottom: 2em;
 
   h1 {
-    font-size: 4em;
+    font-size: 5em;
+
+    small {
+      font-size: 2rem;
+      display: block;
+      font-weight: lighter;
+    }
   }
 
   nav {
     display: flex;
-    justify-content: space-evenly;
-    padding: 5px 0;
-
-    a {
-      color: $color-sky;
-    }
+    justify-content: space-between;
   }
 }

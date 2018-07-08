@@ -1,23 +1,17 @@
-@import 'colors';
-
 .post {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 2em;
 
-  .post__title {
-    margin-bottom: 0;
-  }
   .post__date {
     font-family: Roboto, sans-serif;
     font-size: 0.8em;
-    color: $color-sky;
+    margin-bottom: -1em;
   }
   .post__content {
-    margin-top: 10px;
     line-height: 1.5em;
   }
 }
 
 .pagination {
+  margin-top: 3em;
   text-align: right;
 }

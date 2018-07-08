@@ -1,5 +1,5 @@
 <div class="post">
   <h1 class="post__title"><%= link_to post.title, post %></h1>
   <div class="post__date"><%= post.formatted_date %></div>
-  <div class="post__content"><%= post.preview.html_safe %></div>
+  <div class="post__content"><p><%= post.preview.html_safe %></p></div>
 </div>
