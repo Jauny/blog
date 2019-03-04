@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   def lolz
     render "lolz/index"
   end
+
+  def about
+    render "about/index"
+  end
 end
